@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { AppBar, Avatar, Button, Toolbar, Typography } from "@material-ui/core";
 import useStyles from "./styles";
 import { Link, useHistory, useLocation } from "react-router-dom";
@@ -13,13 +13,13 @@ const NavBar = () => {
   const history = useHistory();
   const location = useLocation();
 
-  const logOut = useCallback(() => {
+  const logOut = () => {
     dispatch({ type: "LOGOUT" });
 
     history.push("/");
 
     setUser(null);
-  }, [dispatch, history]);
+  };
 
   useEffect(() => {
     const token = user?.token;
@@ -33,7 +33,7 @@ const NavBar = () => {
     }
 
     setUser(JSON.parse(localStorage.getItem("profile")));
-  }, [location, user, logOut]);
+  }, [location]);
 
   return (
     <div>

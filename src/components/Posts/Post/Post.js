@@ -22,7 +22,7 @@ function Post({ post, setcurrentId }) {
   const dispatch = useDispatch();
   const user = JSON.parse(localStorage.getItem("profile"));
   const Likes = () => {
-    if (post.likes.length > 0) {
+    if (post?.likes?.length > 0) {
       return post.likes.find(
         (like) => like === (user?.result?.googleId || user?.result?._id)
       ) ? (
