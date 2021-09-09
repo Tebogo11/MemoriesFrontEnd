@@ -1,6 +1,8 @@
 import axios from "axios";
 
-const API = axios.create({ baseURL: "http://localhost:5000" });
+const API = axios.create({
+  baseURL: "https://memoriesbackendapi.herokuapp.com/",
+});
 
 //happens before all the requests
 API.interceptors.request.use((req) => {
